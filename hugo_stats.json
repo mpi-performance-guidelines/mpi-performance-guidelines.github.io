@@ -8,14 +8,12 @@
       "button",
       "circle",
       "code",
-      "details",
       "div",
       "footer",
       "form",
       "g",
       "h1",
       "h2",
-      "h3",
       "h5",
       "head",
       "header",
@@ -38,7 +36,6 @@
       "span",
       "strong",
       "style",
-      "summary",
       "svg",
       "template",
       "time",
@@ -48,7 +45,6 @@
     "classes": [
       "DocSearch-Label",
       "active",
-      "anchor",
       "bg-dots",
       "blog",
       "blog-header",
@@ -215,7 +211,6 @@
       "wrap"
     ],
     "ids": [
-      "TableOfContents",
       "buttonColorMode",
       "further-reading",
       "offcanvasNavMain",
@@ -227,8 +222,7 @@
       "searchResults",
       "searchToggleDesktop",
       "searchToggleMobile",
-      "socialMenu",
-      "toc"
+      "socialMenu"
     ]
   }
 }
