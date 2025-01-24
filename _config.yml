@@ -33,6 +33,10 @@ theme: minima
 plugins:
   - jekyll-feed
 
+header_pages:
+  - guides.md
+  - about.markdown
+
 minima:
   skin: dark
 
