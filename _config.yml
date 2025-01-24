@@ -19,7 +19,9 @@
 # in the templates via {{ site.myvariable }}.
 
 title: MPI Performance Guidelines
-email: raffenet@anl.gov
+author:
+  email: raffenet@anl.gov
+  name: Ken Raffenetti
 description: >- # this means to ignore newlines until "baseurl:"
   MPI Performance Guidelines is a collection of best practices for
   getting the best performance our of you MPI application using
