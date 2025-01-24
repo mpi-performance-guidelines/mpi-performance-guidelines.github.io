@@ -1,5 +1,7 @@
 ---
 layout: page
+title: Guides
+permalink: /guides/
 ---
 
 1. [Avoiding Unintended Synchronization]
