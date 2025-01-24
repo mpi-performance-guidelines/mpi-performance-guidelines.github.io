@@ -21,7 +21,6 @@
 title: MPI Performance Guidelines
 author:
   email: raffenet@anl.gov
-  name: Ken Raffenetti
 description: >- # this means to ignore newlines until "baseurl:"
   MPI Performance Guidelines is a collection of best practices for
   getting the best performance our of you MPI application using
@@ -36,7 +35,7 @@ remote_theme: jekyll/minima
 minima:
   skin: dark
   social_links:
-    - { platform: github, user_url: "https://github.com/raffenet" }
+    github: raffenet
 
 header_pages:
   - guides.md
