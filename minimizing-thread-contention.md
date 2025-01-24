@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Minimizing Thread Contention using Communicator Objects
+title: Minimizing Thread Contention Using Communicator Objects
 ---
 
 The MPI-2 standard defined thread support levels for MPI so that
