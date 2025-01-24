@@ -35,7 +35,8 @@ remote_theme: jekyll/minima
 minima:
   skin: dark
   social_links:
-    github: raffenet
+    - platform: github
+      user_url: "https://github.com/raffenet"
 
 header_pages:
   - guides.md
