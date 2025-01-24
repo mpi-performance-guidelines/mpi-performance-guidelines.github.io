@@ -1,8 +1,7 @@
 ---
 layout: page
+title: Demystifying Progress for MPI Nonblocking Operations
 ---
-
-## Demystifying Progress for MPI Nonblocking Operations
 
 Welcome back to MPI Best Practices for Performance. In this article we
 are going to discuss the concept of MPI _progress_ for nonblocking

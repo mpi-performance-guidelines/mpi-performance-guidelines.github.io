@@ -1,8 +1,7 @@
 ---
 layout: page
+title: Avoiding Unintended Synchronization
 ---
-
-## Avoiding Unintended Synchronization
 
 This is the first in a series of articles on MPI Best Practices for
 Performance. The initial topic is on avoiding unintended synchronization
