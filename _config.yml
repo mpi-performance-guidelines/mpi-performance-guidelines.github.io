@@ -26,15 +26,15 @@ description: >- # this means to ignore newlines until "baseurl:"
   standards-based techniques.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  raffenet
 
 # Build settings
 plugins:
-  - jekyll-feed
   - jekyll-remote-theme
 remote_theme: jekyll/minima
 minima:
   skin: dark
+  social_links:
+    - { platform: github, user_url: "https://github.com/raffenet" }
 
 header_pages:
   - guides.md
