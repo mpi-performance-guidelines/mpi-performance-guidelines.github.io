@@ -32,9 +32,9 @@ github_username:  raffenet
 theme: minima
 plugins:
   - jekyll-feed
-header_pages:
-  - about.markdown
-  - guides.md
+
+minima:
+  skin: dark
 
 # Exclude from processing.
 # The following items will not be processed, by default.
