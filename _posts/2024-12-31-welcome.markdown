@@ -4,7 +4,7 @@ title:  "Welcome!"
 date:   2024-12-31 14:19:59 -0600
 ---
 
-Welcome to the MPI Performance Guidelines site! This site was born of a [BSSw Fellowship][bssw-fellow]. Check out the first guide on [avoiding unintended sycnhronization][unintended-sync]. Other guides can be found [here][guides].
+Welcome to the MPI Performance Guidelines site! The creation of this site was the result of a [BSSw Fellowship][bssw-fellow]. Check out the first guide on [avoiding unintended sycnhronization][unintended-sync]. Other guides can be found [here][guides].
 
 [bssw-fellow]: https://bssw.io/pages/bssw-fellowship-program
 [unintended-sync]: /unintended-sync

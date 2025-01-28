@@ -151,5 +151,15 @@ expectation of progress from the MPI implementation, it should be safe
 to add occassional calls to `MPI_Test` with the intent of ensuring
 progress on a variety of systems to achieve the best performance.
 
+### Takeaway
+
+Do not assume that MPI communication will progress in the background
+once started. If performaning computation after starting a communication
+operation, insert periodic calls to `MPI_Test[any|some|all]` to give MPI
+the opportunity to make progress. This will ensure your application
+performs well anywhere it runs, since the added calls impose minimal
+overhead when asynchronous progress is already provided by the
+implementation.
+
 [ex2]: https://github.com/raffenet/bssw-examples/blob/main/progress/
 [^1]: https://doi.org/10.1016/j.parco.2007.06.003

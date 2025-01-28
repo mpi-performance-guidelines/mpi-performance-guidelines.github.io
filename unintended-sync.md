@@ -19,6 +19,8 @@ examine the performance aspects of each, as well as some common
 pitfalls. First, a naive implementation where each process first sends,
 then receives data to/from each of its neighbors.
 
+### Example 1 (Deadlock!)
+
 ```c
 MPI_Send(sbufsouth, COUNT, MPI_INT, south, 0, MPI_COMM_WORLD);
 MPI_Send(sbufeast, COUNT, MPI_INT, east, 0, MPI_COMM_WORLD);
@@ -44,7 +46,7 @@ Next, we look at one possible solution by carefully ordering the
 operations so there is no chance that all processes can be sending at
 the same time:
 
-### Solution #1
+### Example 2
 
 ```c
 if (south != MPI_PROC_NULL) {
@@ -85,7 +87,7 @@ The next step we will take to improve our exchange is to use
 *nonblocking* receive operations and post them all before starting our
 send operations.
 
-### Solution #2
+### Example 3
 
 ```c
 MPI_Irecv(rbufnorth, COUNT, MPI_INT, north, 0, MPI_COMM_WORLD, &reqs[0]);
@@ -123,7 +125,7 @@ in our exchange are independent from the receive operations at each
 process. There should be no issue overlapping them, thereby implementing
 a fully nonblocking exchange.
 
-### Solution #3
+### Example 4
 
 ```c
 MPI_Irecv(rbufnorth, COUNT, MPI_INT, north, 0, MPI_COMM_WORLD, &reqs[0]);
@@ -147,6 +149,13 @@ unnecessary synchronization or delay caused by congestion at a receiving
 process. The MPI runtime makes progress on all outstanding operations,
 resulting in a ~30% reduction in communication time compared to the
 previous trace using nonblocking receives and blocking sends.
+
+### Takeaway
+
+In general, use nonblocking operations and delay synchronizing with
+other processes for the best performance. Unintended synchronizations
+through MPI communication or otherwise lead to delays and can cause
+imbalance in your code, resulting in wasted cycles.
 
 [hpc-toolkit]: https://hpctoolkit.org/
 [demystifying-progress]: /demystifying-progress/
