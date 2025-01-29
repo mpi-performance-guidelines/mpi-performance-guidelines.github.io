@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Demystifying Progress for MPI Nonblocking Operations
+title: Ensuring Progress for MPI Nonblocking Operations
 ---
 
 Welcome back to MPI Best Practices for Performance. In this article we
@@ -162,4 +162,4 @@ overhead when asynchronous progress is already provided by the
 implementation.
 
 [ex2]: https://github.com/raffenet/bssw-examples/blob/main/progress/
-[^1]: https://doi.org/10.1016/j.parco.2007.06.003
+[^1]: [https://doi.org/10.1016/j.parco.2007.06.003](https://doi.org/10.1016/j.parco.2007.06.003)
