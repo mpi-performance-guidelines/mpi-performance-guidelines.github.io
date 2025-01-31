@@ -138,8 +138,8 @@ for (int i = 0; i < NUM_ITERS; i++) {
 }
 ```
 
-As you can see, this version is much more lengthy. As a user, there must
-be a clear benefit to the longer version if it is to be developed and
+As you can see, this version is more lengthy. As a user, there must be a
+clear benefit to the longer version if it is to be developed and
 maintained in application codes. For our experiment, we will run the
 example for 1000 iterations of each algorithm and compare the average
 communication time. For this run we use 8 JLSE Skylake nodes with 56
