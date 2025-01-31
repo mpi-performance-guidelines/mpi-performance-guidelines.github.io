@@ -156,11 +156,14 @@ avg nonblocking census time = 18.780934
 
 ### Takeaway
 
-The results show ~30% reduction in communication time using the
-nonblocking census algorithm for this synthetic example. Users should
-consider this approach for their application if it fits the criteria we
-discussed. That is, if each process has relatively few communication
-partners, and those partners change from iteration to iteration.
+The result about shows about a 30% reduction in communication time using
+the nonblocking census algorithm. But this is only for our synthetic
+example. Users should consider this approach for their application if it
+fits the criteria we discussed. That is, if each process has relatively
+few communication partners, and those partners change from iteration to
+iteration. If so, it may be worth trying out the alternative and running
+some representative experiments for comparison. If the benefits are
+significant, they could justify the added complexity in your code!
 
 [^1]: [https://doi.org/10.1145/1837853.1693476](https://doi.org/10.1145/1837853.1693476)
 [ex]: https://github.com/raffenet/bssw-examples/tree/main/dsde
