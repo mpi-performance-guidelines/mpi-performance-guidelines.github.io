@@ -1,32 +1,37 @@
 ---
 layout: page
-title: An Alternative to MPI_ALLTOALLV for Dynamic Sparse Data Exchange
+title: Dynamic Sparse Data Exchange with MPI_IBARRIER
 ---
 
-For this guide, we are going to lean heavily on the work for Torsten
-Hoefler[^1] in designing a scalable communication protocol for dynamic
-sparse data exchange using standard MPI-3 functionality. Over the years,
-when discussing MPI scalability issues with users, I often point to this
-paper as a potential way to improve their application. The reason is
-fairly simple: `MPI_ALLTOALL` is expensive at scale. In fact, it is a
-good rule of thumb to assume any of the collective calls with "all" in
-the name are expensive, since every process contributes something to the
-eventual output seen at every other process. These types of collectives
-in practice act as a global synchronization.
+### Background
 
-For users with sparse data, the first step they might take to address
-poor communication performance is to look at
-`MPI_ALLTOALLV`. `MPI_ALLTOALLV` allows each process to contribute
-different amounts of data to the collective, thereby reducing the
-overall communication load on the system. This can be effective when the
+For this guide, we are going to lean heavily on the work for Torsten
+Hoefler[^1] in designing scalable communication protocols for dynamic
+sparse data exchange using standard MPI-3 functionality. Over the years,
+when discussing MPI scalability issues with users whose applications
+have dynamic communication patterns, I often point to this paper as a
+way to potentially improve their performance. The reason is that they
+typically use MPI collectives (typically `MPI_ALLTOALL` or
+`MPI_ALLTOALLV`) to perform their data exchanges. Howver, MPI "all"
+collectives can be expensive at scale. Every process contributes
+something to the eventual output seen at every other process. In
+practice they act as sort of a heavyweight global synchronization.
+
+For users with sparse data, users might often look to `MPI_ALLTOALLV` to
+lighten the communication load and memory consumption during
+communication. `MPI_ALLTOALLV` allows each process to contribute
+different amounts of data to the collective. In a sparse exchange, many
+processes may contribute no data at all. This can be effective when the
 communication pattern is regular over time, but not so much when it is
 irregular. The issue is that `MPI_ALLTOALLV` requires _each process_ to
-specify the amount of data contributed by _every other process_ in the
-collective. If this information is not known _a priori_, then typically
-a user will first have to perform _another_ `MPI_ALLTOALL` with the
-necessary sendcounts for each process before starting the
+specify the amount of data they will receive from _every other process_
+in the collective. If this information is not known _a priori_, then
+typically a user will first have to perform _another_ `MPI_ALLTOALL`
+with the necessary sendcounts for each process before starting the
 `MPI_ALLTOALLV`. Remember that we are trying to avoid "all"
 collectives. Performing a second one is not likely to help performance!
+
+### Other MPI Features
 
 What other options does MPI provide? When neighborhood collectives were
 originally proposed to the MPI Forum, they were called "sparse"
@@ -44,6 +49,8 @@ application perspective _and_ an MPI implementation perspective. This
 leads to unpredictable performance from system to system that often
 requires deep understanding of the architecture to diagnose and address.
 
+### A Use for `MPI_IBARRIER`
+
 If we limit ourselves to traditional point-to-point messaging and
 collectives, but want to avoid using an "all" collective due to
 scalability issues, what is left? The key is another collective
@@ -52,11 +59,11 @@ obvious how a nonblocking barrier is useful to applications, but the key
 is in the way that participants _notify_ that they have reached a
 certain point in the execution, but do not block on that
 synchronization. Rather, they are free to continue communicating with
-other processes that have not yet reached the synchronization. The use
-of `MPI_IBARRIER` and nonblocking synchronous send operations allows
-each process to dynamically modify its communication neighbors in a more
-lightweight manner than a traditional collective approach. The
-literature refers to this as the "nonblocking census" algorithm.
+other processes. The use of `MPI_IBARRIER` and nonblocking synchronous
+send operations allows each process to dynamically modify its
+communication neighbors in a more lightweight manner than a traditional
+collective approach. The literature refers to this as the "nonblocking
+census" algorithm.
 
 ### Example
 
@@ -138,13 +145,13 @@ for (int i = 0; i < NUM_ITERS; i++) {
 }
 ```
 
-As you can see, this version is more lengthy. As a user, there must be a
-clear benefit to the longer version if it is to be developed and
-maintained in application codes. For our experiment, we will run the
-example for 1000 iterations of each algorithm and compare the average
-communication time. For this run we use 8 JLSE Skylake nodes with 56
-processes per node to fully subscribe the CPU cores. The MPI in use is
-MPICH 4.2.3.
+As you can see, the nonblocking census is longer and involves more
+complex logic. As a user, there must be a clear benefit to the longer
+version if it is to be developed and maintained in application
+codes. For our experiment, we will run the example for 1000 iterations
+of each algorithm and compare the average communication time. For this
+run we use 8 JLSE Skylake nodes with 56 processes per node to fully
+subscribe the CPU cores. The MPI in use is MPICH 4.2.3.
 
 #### Experiment
 
