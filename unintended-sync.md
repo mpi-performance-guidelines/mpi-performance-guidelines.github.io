@@ -3,6 +3,8 @@ layout: page
 title: Avoiding Unintended Synchronization
 ---
 
+### Background
+
 This is the first in a series of articles on MPI Best Practices for
 Performance. The initial topic is on avoiding unintended synchronization
 when performing communication using MPI. In particular, we look at using
@@ -10,7 +12,7 @@ MPI point-to-point communication to send and receive data between MPI
 processes. Consider a common two-dimensional halo exchange where each
 process sends and receives messages with up to four of its neighbors.
 
-### 2-dimensional halo exchange
+#### 2-dimensional halo exchange
 
 ![An illustration of a 2d grid halo exchange pattern](/assets/images/halo-exchange.jpg)
 

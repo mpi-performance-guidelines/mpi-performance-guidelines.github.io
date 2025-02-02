@@ -3,6 +3,8 @@ layout: page
 title: Minimizing Thread Contention Using Communicator Objects
 ---
 
+### Background
+
 The [MPI-2][mpi2] standard defined thread support levels for MPI so that
 multi-threaded programs could use MPI effectively. These support levels
 are unchanged in the latest version of the [MPI Standard][mpi-latest]. They are:
@@ -13,12 +15,14 @@ are unchanged in the latest version of the [MPI Standard][mpi-latest]. They are:
 - `MPI_THREAD_MULTIPLE`
 
 From an implementation perspective, the first three levels are not
-*that* different. Each of the three means that MPI is only being called
+_that_ different. Each of the three means that MPI is only being called
 by a single thread at a time. The thread-safety requirements for such
 usage are minimal, mainly having to do with dependent libraries or
 operating system interfaces used by MPI. Such external API calls would
 not commonly be on the data path, therefore they should not impact
 communication performance.
+
+#### Poor Historical Performance of `MPI_THREAD_MULTIPLE`
 
 `MPI_THREAD_MULTIPLE` is a different story. The MPI specification states
 that "multiple threads may call MPI, with no restrictions". Thread-safe
@@ -79,7 +83,7 @@ build configuration. Users can specify the actual number of VCIs needed
 variable. Intel MPI supports a communicator-per-thread mapping in its
 [`MPI_THREAD_SPLIT` programming model].
 
-## Example
+### Example
 
 We can observe the benefits of using separate communicators using by
 measuring the message rate of single process using one and two threads
@@ -121,11 +125,13 @@ thread parallelism in our [example][example], we utilize OpenMP parallel.
 }
 ```
 
+### Experiments
+
 For these experiments we performed runs of the [example code][example]
 using MPICH 4.2.1 and Intel MPI 2021.14 on two nodes of [JLSE
 Skylake][jlse].
 
-### MPICH
+#### MPICH
 ```console
 # mpiexec -n 2 -ppn 1 ./mt-p2p-msgrate-singlecomm
 Number of messages: 3200
@@ -155,7 +161,7 @@ Size      	Threads   	Mmsgs/s
 8         	2         	6.67
 ```
 
-### Intel MPI
+#### Intel MPI
 ```console
 # mpiexec -n 2 -ppn 1 ./mt-p2p-msgrate-singlecomm
 Number of messages: 3200
@@ -186,7 +192,7 @@ Size      	Threads   	Mmsgs/s
 8         	2         	5.58
 ```
 
-## Takeaway
+### Takeaway
 
 As you can see, the performance difference between the single and
 multiple communicator version is drastic. Writing your multithreaded

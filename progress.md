@@ -3,14 +3,16 @@ layout: page
 title: Ensuring Progress for MPI Nonblocking Operations
 ---
 
-Welcome back to MPI Best Practices for Performance. In this article we
+### Background
+
+In this guide we
 are going to discuss the concept of MPI _progress_ for nonblocking
 operations. First, we define communication progress and why it
 matters. Next we look at common misconceptions about MPI
 progress. Lastly, we demonstrate strategies for ensuring efficient and
 performant progress is made in your MPI application.
 
-### Communication Progress
+#### Communication Progress
 
 MPI defines numerous nonblocking communication primitives. These
 operations do not block the calling process based on the completion
@@ -19,7 +21,7 @@ the communication, e.g. protocol handshake, copying of data to/from
 system buffers or shared memory, or transmission over a network is part
 of the operation's **progress** to completion.
 
-### MPI Weak Progress Model
+#### MPI Weak Progress Model
 
 MPI is free to progress communication requests after the initiating call
 has returned, **but it is not required**. That is, a standard-compliant
@@ -40,7 +42,7 @@ operation is started, MPI will work in the background on the request.
 Using an example, we will look at the consequences of weak progress on
 applications and offer solutions to avoid progress stalls.
 
-### Example Code
+### Example
 
 Consider a simplistic example where 2 processes do some computational
 work after starting communication. In this case, rank 0 in
@@ -74,8 +76,11 @@ Running `make` in the example directory will build three version of the example.
 3. `async1-t`: `do_work` also simulates computation for a tenth of a
    second, but breaks it into two phases with a call to `MPI_Test` in
    between.
-   
-Let's look at the output of these three programs on the ALCF Polaris system at Argonne National Laboratory.
+
+### Experiments
+
+Let's look at the output of these three programs on the ALCF Polaris
+system at Argonne National Laboratory.
 
 #### Intranode (both ranks located on the same host):
 ![async example on a single node of Polaris](/assets/images/polaris1.png)
@@ -96,7 +101,7 @@ passing execution control to MPI through the use of `MPI_Test`, the
 sender-side communication is able to overlap with the computation and
 complete in less time than the sum of the two phases.
 
-### Implementation of Intranode Communication by MPI
+#### Implementation of Intranode Communication by MPI
 
 In order to understand the results, we need to consider how a MPI
 implementation performs an intranode transfer. Modern MPI libraries
@@ -116,6 +121,8 @@ send and receiver to avoid consuming limited resources before they will
 be used. Only after the *ready-to-send* (RTS) and *clear-to-send* (CTS)
 handshake has been performed is data copied to shared buffers and
 consumed by the receiver.
+
+![rndv](/assets/images/rndv.png)
 
 The message size in our example far exceeds the typical eager size, so
 we should assume rendezvous is used. `MPI_Isend` causes a CTS message to
