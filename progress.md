@@ -168,5 +168,9 @@ performs well anywhere it runs, since the added calls impose minimal
 overhead when asynchronous progress is already provided by the
 implementation.
 
+<iframe width="720" height="480"
+src="https://www.youtube.com/embed/Ofu3vRpOglU">
+</iframe>
+
 [ex2]: https://github.com/raffenet/bssw-examples/blob/main/progress/
 [^1]: [https://doi.org/10.1016/j.parco.2007.06.003](https://doi.org/10.1016/j.parco.2007.06.003)

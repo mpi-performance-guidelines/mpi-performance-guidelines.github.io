@@ -159,6 +159,10 @@ other processes for the best performance. Unintended synchronizations
 through MPI communication or otherwise lead to delays and can cause
 imbalance in your code, resulting in wasted cycles.
 
+<iframe width="720" height="480"
+src="https://www.youtube.com/embed/Qgk5L1XL3Ck">
+</iframe>
+
 [hpc-toolkit]: https://hpctoolkit.org/
 [demystifying-progress]: /demystifying-progress/
 [^1]: Even before calling ``MPI_Waitall``, MPI can progress outstanding

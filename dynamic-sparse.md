@@ -172,5 +172,9 @@ iteration. If so, it may be worth trying out the alternative and running
 some representative experiments for comparison. If the benefits are
 significant, they could justify the added complexity in your code!
 
+<iframe width="720" height="480"
+src="https://www.youtube.com/embed/MpxSm0NQG4g">
+</iframe>
+
 [^1]: [https://doi.org/10.1145/1837853.1693476](https://doi.org/10.1145/1837853.1693476)
 [ex]: https://github.com/raffenet/bssw-examples/tree/main/dsde
