@@ -202,9 +202,11 @@ MPI documentation from your installation, or ask your implementor for
 more information. If you have suggestions for another MPI
 implementation, [create an issue][issue] or [submit a pull request][pr]!
 
-<iframe width="720" height="480"
+<p align="center">
+<iframe width="560" height="340"
 src="https://www.youtube.com/embed/jksJ5NBBpRk">
 </iframe>
+</p>
 
 [mpi2]: https://www.mpi-forum.org/docs/mpi-2.0/mpi-20-html/mpi2-report.html
 [mpi-latest]: https://www.mpi-forum.org/docs/

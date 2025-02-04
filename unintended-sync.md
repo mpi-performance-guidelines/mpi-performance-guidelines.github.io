@@ -145,7 +145,6 @@ MPI_Waitall(8, reqs, MPI_STATUSES_IGNORE);
 
 ![Execution trace of example with fully nonblocking exchange](/assets/images/trace2.png)
 
-
 Starting all our sends before waiting for completion avoids any
 unnecessary synchronization or delay caused by congestion at a receiving
 process. The MPI runtime makes progress on all outstanding operations,
@@ -159,15 +158,12 @@ other processes for the best performance. Unintended synchronizations
 through MPI communication or otherwise lead to delays and can cause
 imbalance in your code, resulting in wasted cycles.
 
-<iframe width="720" height="480"
+<p align="center">
+<iframe width="560" height="340"
 src="https://www.youtube.com/embed/Qgk5L1XL3Ck">
 </iframe>
+</p>
 
 [hpc-toolkit]: https://hpctoolkit.org/
 [demystifying-progress]: /demystifying-progress/
-[^1]: Even before calling ``MPI_Waitall``, MPI can progress outstanding
-  receive operations either in the background, or each time the user
-  passes control of the execution to the MPI library. In the example,
-  MPI can progress outstanding posted receives inside each call to
-  ``MPI_Send``. We discuss the topic of progress in more detail in
-  [Demystifying Progress for Nonblocking MPI Operations][demystifying-progress].
+[^1]: Even before calling ``MPI_Waitall``, MPI can progress outstanding receive operations either in the background, or each time the user passes control of the execution to the MPI library. In the example, MPI can progress outstanding posted receives inside each call to ``MPI_Send``. We discuss the topic of progress in more detail in [Demystifying Progress for Nonblocking MPI Operations][demystifying-progress].
