@@ -179,4 +179,4 @@ src="https://www.youtube.com/embed/MpxSm0NQG4g">
 </p>
 
 [^1]: [https://doi.org/10.1145/1837853.1693476](https://doi.org/10.1145/1837853.1693476)
-[ex]: https://github.com/raffenet/bssw-examples/tree/main/dsde
+[ex]: https://github.com/mpi-performance-guidelines/examples/tree/main/dsde

@@ -174,5 +174,5 @@ src="https://www.youtube.com/embed/Ofu3vRpOglU">
 </iframe>
 </p>
 
-[ex2]: https://github.com/raffenet/bssw-examples/blob/main/progress/
+[ex2]: https://github.com/mpi-performance-guidelines/examples/blob/main/progress/
 [^1]: [https://doi.org/10.1016/j.parco.2007.06.003](https://doi.org/10.1016/j.parco.2007.06.003)

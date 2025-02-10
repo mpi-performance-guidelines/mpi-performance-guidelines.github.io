@@ -214,7 +214,7 @@ src="https://www.youtube.com/embed/jksJ5NBBpRk">
 [^2]: [https://en.wikipedia.org/wiki/Scalability#Horizontal_(scale_out)_and_vertical_scaling_(scale_up)](https://en.wikipedia.org/wiki/Scalability#Horizontal_(scale_out)_and_vertical_scaling_(scale_up))
 [^3]: [https://doi.org/10.1145/3392717.3392773](https://doi.org/10.1145/3392717.3392773)
 [`MPI_THREAD_SPLIT` programming model]: https://www.intel.com/content/www/us/en/docs/mpi-library/developer-guide-linux/2021-14/mpi-thread-split-programming-model.html
-[example]: https://github.com/raffenet/bssw-examples/tree/main/thread-contention
+[example]: https://github.com/mpi-performance-guidelines/examples/tree/main/thread-contention
 [jlse]: https://www.jlse.anl.gov/skylake
 [issue]: https://github.com/mpi-performance-guidelines/mpi-performance-guidelines.github.io/issues
 [pr]: https://github.com/mpi-performance-guidelines/mpi-performance-guidelines.github.io/pulls
