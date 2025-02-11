@@ -16,12 +16,15 @@ process sends and receives messages with up to four of its neighbors.
 
 ![An illustration of a 2d grid halo exchange pattern](/assets/images/halo-exchange.jpg)
 
+### Examples
+
 We will look at four different implementations of such an exchange and
 examine the performance aspects of each, as well as some common
-pitfalls. First, a naive implementation where each process first sends,
-then receives data to/from each of its neighbors.
+pitfalls. Source code for each example can be found [here][ex]. First, a
+naive implementation where each process first sends, then receives data
+to/from each of its neighbors.
 
-### Example 1 (Deadlock!)
+#### Example 1 (Deadlock!)
 
 ```c
 MPI_Send(sbufsouth, COUNT, MPI_INT, south, 0, MPI_COMM_WORLD);
@@ -48,7 +51,7 @@ Next, we look at one possible solution by carefully ordering the
 operations so there is no chance that all processes can be sending at
 the same time:
 
-### Example 2
+#### Example 2
 
 ```c
 if (south != MPI_PROC_NULL) {
@@ -89,7 +92,7 @@ The next step we will take to improve our exchange is to use
 *nonblocking* receive operations and post them all before starting our
 send operations.
 
-### Example 3
+#### Example 3
 
 ```c
 MPI_Irecv(rbufnorth, COUNT, MPI_INT, north, 0, MPI_COMM_WORLD, &reqs[0]);
@@ -127,7 +130,7 @@ in our exchange are independent from the receive operations at each
 process. There should be no issue overlapping them, thereby implementing
 a fully nonblocking exchange.
 
-### Example 4
+#### Example 4
 
 ```c
 MPI_Irecv(rbufnorth, COUNT, MPI_INT, north, 0, MPI_COMM_WORLD, &reqs[0]);
@@ -164,6 +167,7 @@ src="https://www.youtube.com/embed/Qgk5L1XL3Ck">
 </iframe>
 </p>
 
+[ex]: https://github.com/mpi-performance-guidelines/examples
 [hpc-toolkit]: https://hpctoolkit.org/
 [demystifying-progress]: /demystifying-progress/
 [^1]: Even before calling ``MPI_Waitall``, MPI can progress outstanding receive operations either in the background, or each time the user passes control of the execution to the MPI library. In the example, MPI can progress outstanding posted receives inside each call to ``MPI_Send``. We discuss the topic of progress in more detail in [Demystifying Progress for Nonblocking MPI Operations][demystifying-progress].
