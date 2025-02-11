@@ -42,7 +42,7 @@ header_pages:
   - guides.md
   - about.markdown
 
-show_excerpts: true
+page_excerpts: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
