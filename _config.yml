@@ -34,6 +34,7 @@ plugins:
 remote_theme: jekyll/minima
 minima:
   skin: dark
+  show_excerpts: true
 #  social_links:
 #    - platform: github
 #      user_url: "https://github.com/raffenet"
@@ -42,7 +43,6 @@ header_pages:
   - guides.md
   - about.markdown
 
-page_excerpts: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
