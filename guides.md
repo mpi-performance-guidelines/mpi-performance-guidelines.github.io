@@ -4,10 +4,10 @@ title: Guides
 permalink: /guides/
 ---
 
-1. [Avoiding Unintended Synchronization][unintended-sync]
-2. [Ensuring Progress for MPI Nonblocking Operations][progress]
-3. [Minimizing Thread Contention using Communicator Objects][thread-mapping]
-4. [Dynamic Sparse Data Exchange with MPI_IBARRIER][dsde]
+* [Avoiding Unintended Synchronization][unintended-sync]
+* [Ensuring Progress for MPI Nonblocking Operations][progress]
+* [Minimizing Thread Contention using Communicator Objects][thread-mapping]
+* [Dynamic Sparse Data Exchange with MPI_IBARRIER][dsde]
 
 [unintended-sync]: /unintended-sync
 [progress]: /progress

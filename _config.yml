@@ -41,6 +41,7 @@ minima:
 
 header_pages:
   - guides.md
+  - contributing.md
   - about.markdown
 
 
