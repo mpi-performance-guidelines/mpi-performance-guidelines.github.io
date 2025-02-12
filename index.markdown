@@ -14,7 +14,7 @@ out the initial set of guides:
 * [Minimizing Thread Contention Using Communication Objects][threads]
 * [Dynamic Sparse Data Exchange with MPI_IBARRIER][dsde]
 
-Want to contribute? See [contributing][contrib] for more
+Want to contribute? See [here][contrib] for more
 information.
 
 [bssw-fellow]: https://bssw.io/pages/bssw-fellowship-program
