@@ -12,7 +12,7 @@ out the initial set of guides and their companion videos.
 * [Avoiding Unintended Synchronization][unintended-sync] - [[video][vid1]]
 * [Ensuring Progress for MPI Nonblocking Operations][progress] - [[video][vid2]]
 * [Minimizing Thread Contention Using Communication Objects][threads] - [[video][vid3]]
-* [Dynamic Sparse Data Exchange with MPI_IBARRIER][dsde] - [[video][vid3]]
+* [Dynamic Sparse Data Exchange with MPI_IBARRIER][dsde] - [[video][vid4]]
 
 Want to contribute? See [here][contrib] for more
 information.
