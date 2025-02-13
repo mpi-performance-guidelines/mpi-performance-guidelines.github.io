@@ -3,6 +3,18 @@ layout: page
 title: Dynamic Sparse Data Exchange with MPI_IBARRIER
 ---
 
+### Video Summary
+
+The below video is a short summary of the article in presentation
+format. Read on for more details and also links to related work and
+example codes.
+
+<p align="center">
+<iframe width="560" height="340"
+src="https://www.youtube.com/embed/MpxSm0NQG4g">
+</iframe>
+</p>
+
 ### Background
 
 For this guide, we are going to lean heavily on the work for Torsten
@@ -171,12 +183,6 @@ few communication partners, and those partners change from iteration to
 iteration. If so, it may be worth trying out the alternative and running
 some representative experiments for comparison. If the benefits are
 significant, they could justify the added complexity in your code!
-
-<p align="center">
-<iframe width="560" height="340"
-src="https://www.youtube.com/embed/MpxSm0NQG4g">
-</iframe>
-</p>
 
 [^1]: [https://doi.org/10.1145/1837853.1693476](https://doi.org/10.1145/1837853.1693476)
 [ex]: https://github.com/mpi-performance-guidelines/examples/tree/main/dsde

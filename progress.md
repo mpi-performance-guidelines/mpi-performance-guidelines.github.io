@@ -3,6 +3,18 @@ layout: page
 title: Ensuring Progress for MPI Nonblocking Operations
 ---
 
+### Video Summary
+
+The below video is a short summary of the article in presentation
+format. Read on for more details and also links to related work and
+example codes.
+
+<p align="center">
+<iframe width="560" height="340"
+src="https://www.youtube.com/embed/Ofu3vRpOglU">
+</iframe>
+</p>
+
 ### Background
 
 In this guide we
@@ -167,12 +179,6 @@ the opportunity to make progress. This will ensure your application
 performs well anywhere it runs, since the added calls impose minimal
 overhead when asynchronous progress is already provided by the
 implementation.
-
-<p align="center">
-<iframe width="560" height="340"
-src="https://www.youtube.com/embed/Ofu3vRpOglU">
-</iframe>
-</p>
 
 [ex2]: https://github.com/mpi-performance-guidelines/examples/blob/main/progress/
 [^1]: [https://doi.org/10.1016/j.parco.2007.06.003](https://doi.org/10.1016/j.parco.2007.06.003)

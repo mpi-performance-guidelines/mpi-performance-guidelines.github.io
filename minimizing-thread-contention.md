@@ -3,6 +3,18 @@ layout: page
 title: Minimizing Thread Contention Using Communicator Objects
 ---
 
+### Video Summary
+
+The below video is a short summary of the article in presentation
+format. Read on for more details and also links to related work and
+example codes.
+
+<p align="center">
+<iframe width="560" height="340"
+src="https://www.youtube.com/embed/jksJ5NBBpRk">
+</iframe>
+</p>
+
 ### Background
 
 The [MPI-2][mpi2] standard defined thread support levels for MPI so that
@@ -201,12 +213,6 @@ needed to enable the right features at runtime.  As always, consult the
 MPI documentation from your installation, or ask your implementor for
 more information. If you have suggestions for another MPI
 implementation, [create an issue][issue] or [submit a pull request][pr]!
-
-<p align="center">
-<iframe width="560" height="340"
-src="https://www.youtube.com/embed/jksJ5NBBpRk">
-</iframe>
-</p>
 
 [mpi2]: https://www.mpi-forum.org/docs/mpi-2.0/mpi-20-html/mpi2-report.html
 [mpi-latest]: https://www.mpi-forum.org/docs/

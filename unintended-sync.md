@@ -3,6 +3,18 @@ layout: page
 title: Avoiding Unintended Synchronization
 ---
 
+### Video Summary
+
+The below video is a short summary of the article in presentation
+format. Read on for more details and also links to related work and
+example codes.
+
+<p align="center">
+<iframe width="560" height="340"
+src="https://www.youtube.com/embed/Qgk5L1XL3Ck">
+</iframe>
+</p>
+
 ### Background
 
 This is the first in a series of articles on MPI Best Practices for
@@ -160,12 +172,6 @@ In general, use nonblocking operations and delay synchronizing with
 other processes for the best performance. Unintended synchronizations
 through MPI communication or otherwise lead to delays and can cause
 imbalance in your code, resulting in wasted cycles.
-
-<p align="center">
-<iframe width="560" height="340"
-src="https://www.youtube.com/embed/Qgk5L1XL3Ck">
-</iframe>
-</p>
 
 [ex]: https://github.com/mpi-performance-guidelines/examples
 [hpc-toolkit]: https://hpctoolkit.org/
