@@ -24,9 +24,11 @@ MPI point-to-point communication to send and receive data between MPI
 processes. Consider a common two-dimensional halo exchange where each
 process sends and receives messages with up to four of its neighbors.
 
-#### 2-dimensional halo exchange
-
-![An illustration of a 2d grid halo exchange pattern](/assets/images/halo-exchange.jpg)
+<figure align="center">
+  <img src="{{site.url}}/assets/images/halo-exchange.jpg"
+    alt="illustration of a 2d grid halo exchange pattern"/>
+  <figcaption>An illustration of a 2d grid halo exchange pattern.</figcaption>
+</figure>
 
 ### Examples
 
@@ -128,7 +130,15 @@ to process incoming messages. In our example, delays will propagate
 throughout the exchange and lead to underutilization of the
 communication resources and suboptimal performance.
 
-![Execution trace of example with send/recv ordering to avoid deadlock](/assets/images/trace1.png)
+<figure align="center">
+  <img src="{{site.url}}/assets/images/trace1.png"
+    alt="execution trace of halo exchange using blocking send/recv ordering"/>
+  <figcaption>
+    Execution trace of nonblocking recv, blocking send example. Sender
+    delay is propagated throughout the exchange, resulting in process 3
+    lagging behind its partners.
+  </figcaption>
+</figure>
 
 Preposting receive operations results in multiple positive
 outcomes. First, simpler code, which any developer can
@@ -158,7 +168,16 @@ MPI_Isend(sbufwest, COUNT, MPI_INT, west, 0, MPI_COMM_WORLD, &reqs[7]);
 MPI_Waitall(8, reqs, MPI_STATUSES_IGNORE);
 ```
 
-![Execution trace of example with fully nonblocking exchange](/assets/images/trace2.png)
+<figure align="center">
+  <img src="{{site.url}}/assets/images/trace2.png"
+    alt="execution trace of halo exchange using blocking send/recv ordering"/>
+  <figcaption>
+    Execution trace of fully nonblocking example. Overall communication
+    time is 30% less than previous trace. Interior processes 4 and 7
+    have the highest communication load and therefore are last to
+    finish the exchange.
+  </figcaption>
+</figure>
 
 Starting all our sends before waiting for completion avoids any
 unnecessary synchronization or delay caused by congestion at a receiving
