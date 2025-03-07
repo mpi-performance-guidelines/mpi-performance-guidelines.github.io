@@ -31,7 +31,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # Build settings
 plugins:
   - jekyll-remote-theme
-remote_theme: jekyll/minima
+remote_theme: "jekyll/minima@1e8a445"
 minima:
   skin: dark
   show_excerpts: true
