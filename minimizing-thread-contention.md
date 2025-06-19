@@ -38,7 +38,7 @@ communication performance.
 
 `MPI_THREAD_MULTIPLE` is a different story. The MPI specification states
 that "multiple threads may call MPI, with no restrictions". Thread-safe
-MPI libraries must identify code paths where shared reources are
+MPI libraries must identify code paths where shared resources are
 accessed and add protection to prevent data races or corruption. For
 communication resources like shared memory or network queues, accesses
 from multiple threads concurrently results in lock contention and
