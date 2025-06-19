@@ -47,12 +47,11 @@ dramatically reduced communication throughput[^1].
 For years following MPI-2, `MPI_THREAD_MULTIPLE` was known to have
 performance issues. Users (and implementors) tended to stick with "MPI
 everywhere" for the best performance. But as core counts grew, the
-amount of memory per core could be seen to shrink from generation to
-generation of machine. Users understandably became tempted by
-multithreaded optimization to reduce memory pressure on their
-applications. If those applications attempted to scale out[^2] using MPI
-concurrently, they would come to know the bottlenecks associated with
-lock contention.
+amount of memory per core shrank from generation to generation of
+machine. Users understandably became tempted by multithreaded
+optimization to reduce memory pressure on their applications. If those
+applications attempted to scale out[^2] using MPI concurrently, they
+would come to know the bottlenecks associated with lock contention.
 
 Research into mitigating the contention caused by concurrent access to
 shared resources continues, but an alternative approach emerged to
