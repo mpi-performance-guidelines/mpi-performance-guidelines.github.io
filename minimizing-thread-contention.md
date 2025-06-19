@@ -191,6 +191,7 @@ Size      	Threads   	Mmsgs/s
 # export I_MPI_THREAD_SPLIT=1
 # export I_MPI_THREAD_RUNTIME=openmp
 # export OMP_NUM_THREADS=2
+# mpiexec -n 2 -ppn 1 ./mt-p2p-msgrate-multicomm
 Number of messages: 3200
 Message size: 8
 Window size: 64
