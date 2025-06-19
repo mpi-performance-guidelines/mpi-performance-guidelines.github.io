@@ -100,7 +100,7 @@ variable. Intel MPI supports a communicator-per-thread mapping in its
 We can observe the benefits of using separate communicators using by
 measuring the message rate of single process using one and two threads
 and contrast that with the same code using a single communicator. For
-thread parallelism in our [example][example], we utilize OpenMP parallel.
+thread parallelism in our [example][example], we utilize [OpenMP parallel][omp-parallel].
 
 ```c
 #pragma omp parallel num_threads(n)
@@ -224,3 +224,4 @@ implementation, [create an issue][issue] or [submit a pull request][pr]!
 [jlse]: https://www.jlse.anl.gov/skylake
 [issue]: https://github.com/mpi-performance-guidelines/mpi-performance-guidelines.github.io/issues
 [pr]: https://github.com/mpi-performance-guidelines/mpi-performance-guidelines.github.io/pulls
+[omp-parallel]: https://www.openmp.org/spec-html/5.0/openmpse14.html
