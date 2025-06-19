@@ -87,7 +87,7 @@ Multiple MPI implementation support a communicator-per-thread mapping to
 provide the best `MPI_THREAD_MULTIPLE` performance. Because such a
 feature can be expensive from a resource perspective, it is often
 disabled by default and requires explicit settings in the build or
-environment in order to utilize it. In MPICH[^5] releases since 4.0, up
+environment in order to utilize it. In [MPICH][mpich] releases since 4.0, up
 to 64 "VCIs" are supported within a single process with the ch4 device
 build configuration. Users can specify the actual number of VCIs needed
 (default=1) at runtime with the `MPIR_CVAR_CH4_NUM_VCIS` environment
@@ -225,3 +225,4 @@ implementation, [create an issue][issue] or [submit a pull request][pr]!
 [issue]: https://github.com/mpi-performance-guidelines/mpi-performance-guidelines.github.io/issues
 [pr]: https://github.com/mpi-performance-guidelines/mpi-performance-guidelines.github.io/pulls
 [omp-parallel]: https://www.openmp.org/spec-html/5.0/openmpse14.html
+[mpich]: https://www.mpich.org
